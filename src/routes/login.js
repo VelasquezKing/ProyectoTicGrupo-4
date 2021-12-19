@@ -1,9 +1,49 @@
-import React from 'react'
 import { NavLink,Link } from 'react-router-dom';
+import axios from "axios";
+import React, { Component } from "react";
+import appConfig from "../appConfig";
 
-const login = () => {
-  return (
-    <div>
+export default class Login extends Component {
+	constructor(props) {
+		//Initialize dad contructor
+		super(props);
+		//Binding functions
+		this.handleChange = this.handleChange.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+		this.changeStateApp = this.props.onTryLogin;
+		//Component State Definition
+		this.state = {
+		  username: "",
+		  password: "",
+		};
+	  }
+	
+	  async handleClick() {
+		let response = await axios.post(appConfig.urlBackEnd + 'torneos', this.state);
+		if(response.data.length == 1){
+			this.changeStateApp(true,response.data[0].nombre)
+			//actualizar el estado de logged en el component App
+		}else{
+			alert('El usuario o contrasena estan equivocado.')
+		}
+	  }
+	
+	  async handleChange(e) {
+		if (e.target.name == "username") {
+		  await this.setState({
+			username: e.target.value,
+		  });
+		} else {
+		  await this.setState({
+			password: e.target.value,
+		  });
+		}
+		console.log(this.state);
+	  }
+	
+	render() {
+		return (
+			<div>
        <body>
 	   <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
@@ -30,7 +70,7 @@ const login = () => {
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email"/>
+						<input class="input100" type="text" name="username" placeholder="Email" onChange={this.handleChange}/>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -38,7 +78,7 @@ const login = () => {
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Contraseña"/>
+						<input class="input100" type="password" name="password" placeholder="Contraseña" onChange={this.handleChange}/>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -46,8 +86,8 @@ const login = () => {
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button  class="login100-form-btn">
-						<NavLink to="/homeInterno"> Iniciar </NavLink>
+						<button  class="login100-form-btn" onClick={this.handleClick} value="Login"> 
+						 Iniciar
 						</button>
 					</div>
 
@@ -83,7 +123,6 @@ const login = () => {
 	<script src="js/main.js"></script>
   </body>
       </div>
-  );
+		)
+	}
 }
-
-export default login

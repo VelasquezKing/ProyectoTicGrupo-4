@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-function editarusuario() {
-    return (
-        <div>
-            
-        </div>
-    )
+export default class editarusuario extends Component {
+    render() {
+        return (
+            <div>
+                
+            </div>
+        )
+    }
 }
-
-export default editarusuario

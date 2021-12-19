@@ -9,10 +9,11 @@ import {
     Link,
     NavLink
   } from "react-router-dom";
-
-function App() {
-  return (
-    <router>
+export default class App extends Component {
+    render() {
+        return (
+            <div>
+                <router>
     <div>
       <body id="page-top">
         <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -122,15 +123,18 @@ function App() {
         
         
         <footer className="py-5 bg-black">
-            <div className="container px-5"><p className="m-0 text-center text-white small">Copyright &copy; grupo 10</p></div>
+        <div className="container px-5"><p className="m-0 text-center text-white small">Copyright &copy; grupo 10</p></div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
     </body>
     </div>
     </router>
-  );
+            </div>
+    );
 }
 
 
-export default App;
+    }
+    
+
