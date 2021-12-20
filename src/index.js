@@ -1,7 +1,6 @@
 import { render } from "react-dom";
 import {
   BrowserRouter,
-  Navigate,
   Routes,
   Route
 } from "react-router-dom";

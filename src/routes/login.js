@@ -1,46 +1,8 @@
-import { NavLink,Link } from 'react-router-dom';
+import { NavLink,} from 'react-router-dom';
 import axios from "axios";
 import React, { Component } from "react";
-import appConfig from "../appConfig";
 
 export default class Login extends Component {
-	constructor(props) {
-		//Initialize dad contructor
-		super(props);
-		//Binding functions
-		this.handleChange = this.handleChange.bind(this);
-		this.handleClick = this.handleClick.bind(this);
-		this.changeStateApp = this.props.onTryLogin;
-		//Component State Definition
-		this.state = {
-		  username: "",
-		  password: "",
-		};
-	  }
-	
-	  async handleClick() {
-		let response = await axios.post(appConfig.urlBackEnd + 'torneos', this.state);
-		if(response.data.length == 1){
-			this.changeStateApp(true,response.data[0].nombre)
-			//actualizar el estado de logged en el component App
-		}else{
-			alert('El usuario o contrasena estan equivocado.')
-		}
-	  }
-	
-	  async handleChange(e) {
-		if (e.target.name == "username") {
-		  await this.setState({
-			username: e.target.value,
-		  });
-		} else {
-		  await this.setState({
-			password: e.target.value,
-		  });
-		}
-		console.log(this.state);
-	  }
-	
 	render() {
 		return (
 			<div>
