@@ -1,0 +1,31 @@
+###Crear usuario
+POST http://localhost:9000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Alfredo Perez",
+  "age": 30,
+  "email": "jvelasquezd@gmail.com",
+  "password": "hola1234"
+  
+}
+
+### Recibir todos los datos
+GET http://localhost:9000/api/users HTTP/1.1
+
+### Recibir un dato
+GET http://localhost:9000/api/users/61c0711a832d18f0ae0227a0 HTTP/1.1
+
+### Eliminar
+DELETE http://localhost:9000/api/users/61c119fc227b2dca5ecbb168 HTTP/1.1
+
+###
+PUT http://localhost:9000/api/users/61c119cc227b2dca5ecbb166 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Juan Velasquez",
+  "age": 28,
+  "email": "jvelasquezd@gmail.com",
+  "password": "uninorte"
+}
