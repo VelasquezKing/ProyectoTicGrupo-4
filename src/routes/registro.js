@@ -38,17 +38,9 @@ function registro() {
 							<i class="fa fa-desktop" aria-hidden="true"></i>
 						</span>
 					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Valid celular is required: ex@abc.xyz">
-						<input class="input100" type="text" name="celular" placeholder="Celular"/>
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-phone" aria-hidden="true"></i>
-						</span>
-					</div>
-
+					
 					<div class="wrap-input100 validate-input" data-validate = "Valid Tipo de usuario is required: ex@abc.xyz">
-						<input class="input100" type="text" name="Tipo de usuario" placeholder="Tipo de usuario"/>
+						<input class="input100" type="text" name="Age" placeholder="Edad"/>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-id-badge" aria-hidden="true"></i>
